@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour{
     
     public GameObject gameOverCanvas;
+    public int gameType = 1;
 
     private void Start(){
         gameOverCanvas.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = 0;
     }
 
 
@@ -21,6 +22,14 @@ public class GameManager : MonoBehaviour{
 
     public void Replay(){
         SceneManager.LoadScene(0);
+    }
+
+    public void Pause(){
+        Time.timeScale = 0;
+    }
+
+    public void Resume(){
+        Time.timeScale = 1;
     }
 
 }
