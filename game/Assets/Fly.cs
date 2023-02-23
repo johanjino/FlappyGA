@@ -27,4 +27,4 @@ public class Fly : MonoBehaviour{
         gameManager.GameOver();
     }
 
-  
+}
