@@ -493,7 +493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 403.59726, y: 185.96936}
+  m_AnchoredPosition: {x: 306.4, y: 160.77}
   m_SizeDelta: {x: 73.1981, y: 64.4571}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &144759387
@@ -1036,10 +1036,10 @@ GameObject:
   m_Component:
   - component: {fileID: 952692350}
   - component: {fileID: 952692349}
-  - component: {fileID: 952692348}
   - component: {fileID: 952692347}
   - component: {fileID: 952692351}
   - component: {fileID: 952692352}
+  - component: {fileID: 952692353}
   m_Layer: 0
   m_Name: Birdie
   m_TagString: Untagged
@@ -1068,26 +1068,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &952692348
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 952692346}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cea2215bad511bf40b058cabd25d4c2a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!212 &952692349
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1129,12 +1109,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1697014140, guid: 09db190b3fc169b4da0cd930f80029a9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1dd9542b2d7e10541840f1f85bb880cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.22, y: 0.19}
+  m_Size: {x: 15, y: 11.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1148,8 +1128,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952692346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0531, y: 1.0767, z: 0}
-  m_LocalScale: {x: 4.1168227, y: 4.576023, z: 1}
+  m_LocalPosition: {x: 0.0173, y: 0.004, z: 0}
+  m_LocalScale: {x: 0.062267665, y: 0.063726395, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1185,9 +1165,29 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0067270366, y: -0.0032039746}
-  m_Size: {x: 0.11157553, y: 0.10607526}
-  m_Direction: 0
+  m_Offset: {x: -0.20110595, y: 0.120158345}
+  m_Size: {x: 10.479983, y: 4.746582}
+  m_Direction: 1
+--- !u!95 &952692353
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952692346}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 003f05b8875d7304ea244ce2c41615f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1059666147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,6 +2205,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 594696a3d6a49bb4e8fad28e7f2611d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingScreen: {fileID: 0}
+  loadingText: {fileID: 0}
+  menuButtons: {fileID: 0}
+  createRoomScreen: {fileID: 0}
+  roomNameInput: {fileID: 0}
+  roomScreen: {fileID: 0}
+  roomNameText: {fileID: 0}
+  playerNameLabel: {fileID: 0}
+  errorScreen: {fileID: 0}
+  errorText: {fileID: 0}
+  roomBrowserScreen: {fileID: 0}
+  theRoomButton: {fileID: 0}
+  nameInputScreen: {fileID: 0}
+  nameInput: {fileID: 0}
+  levelToPlay: 
+  startButton: {fileID: 0}
 --- !u!4 &1937583795
 Transform:
   m_ObjectHideFlags: 0
