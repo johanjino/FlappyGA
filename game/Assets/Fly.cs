@@ -9,6 +9,7 @@ using System.Text;
 using Microsoft.ML;
 using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
+using System.IO;
 
 
 public class Client {
@@ -141,10 +142,27 @@ public class Fly : MonoBehaviour{
             }
         }
         else{
-            if (Input.GetKey("up")){
-                //Jump
+            // opens the file without any filelock
+            FileStream file = new FileStream(@"H:\EIE2_Projects\IP_Labs\jump_data_temp.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+
+            byte[] buffer = new byte[1024];
+
+            // Read data from the file stream into the buffer
+            int bytesRead = file.Read(buffer, 0, buffer.Length);
+
+            // Convert the byte array to a string
+            string data = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+
+            if (file != null)
+            {  
+                if (data=="1"){
+                //FPGA Jumps
                 rb.velocity = Vector2.up * velocity;
+                }
+
+                 file.Close();
             }
+        
         }
         count += 1;
     
