@@ -142,26 +142,25 @@ public class Fly : MonoBehaviour{
             }
         }
         else{
-
-            string relative_Path = "jump_data.txt"; 
-            string full_Path = Path.Combine(Application.dataPath, relative_Path);
-           
-            FileStream file = new FileStream(full_Path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite); 
+            // opens the file without any filelock
+            FileStream file = new FileStream(@"H:\EIE2_Projects\IP_Labs\jump_data_temp.txt", FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
 
             byte[] buffer = new byte[1024];
+
+            // Read data from the file stream into the buffer
             int bytesRead = file.Read(buffer, 0, buffer.Length);
 
+            // Convert the byte array to a string
             string data = Encoding.UTF8.GetString(buffer, 0, bytesRead);
 
             if (file != null)
             {  
-                if (data=="1" || Input.GetKey("up")){  //FPGA Jumps
-                
+                if (data=="1"){
+                //FPGA Jumps
                 rb.velocity = Vector2.up * velocity;
-                
                 }
-                print(data);
-                file.Close();
+
+                 file.Close();
             }
         
         }
