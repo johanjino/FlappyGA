@@ -112,6 +112,7 @@ public class Fly : MonoBehaviour{
     void Start(){
         rb = GetComponent<Rigidbody2D>();
         session = gameMetadata.ML_load();
+        rb.velocity = Vector2.up * velocity;
     }
 
     // Update is called once per frame
@@ -146,7 +147,7 @@ public class Fly : MonoBehaviour{
             string relative_Path = "jump_data.txt"; 
             string full_Path = Path.Combine(Application.dataPath, relative_Path);
            
-            FileStream file = new FileStream(full_Path, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite); 
+            FileStream file = new FileStream(full_Path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite); 
 
             byte[] buffer = new byte[1024];
             int bytesRead = file.Read(buffer, 0, buffer.Length);

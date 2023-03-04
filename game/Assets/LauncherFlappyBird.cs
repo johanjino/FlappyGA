@@ -48,9 +48,7 @@ public class LauncherFlappyBird : MonoBehaviourPunCallbacks
         loadingText.text = "Connecting to Network...";
         print ("Connecting to Server");
         PhotonNetwork.GameVersion = "0.0.1";
-        PhotonNetwork.ConnectUsingSettings();
-
-        
+        PhotonNetwork.ConnectUsingSettings();   
     }
 
     void CloseMenus()
