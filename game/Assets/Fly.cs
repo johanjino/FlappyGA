@@ -10,6 +10,8 @@ using Microsoft.ML;
 using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using System.IO;
+using Amazon.DynamoDBv2;
+using Amazon;
 
 
 public class Client {
@@ -110,6 +112,7 @@ public class Fly : MonoBehaviour{
 
     // Start is called before the first frame update
     void Start(){
+        UnityInitializer.AttachToGameObject(this.gameObject);
         rb = GetComponent<Rigidbody2D>();
         session = gameMetadata.ML_load();
         rb.velocity = Vector2.up * velocity;
