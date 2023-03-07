@@ -174,7 +174,9 @@ public class Fly : MonoBehaviour{
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        gameManager.GameOver();
+        if (collision.gameObject.tag != "Player"){
+            gameManager.GameOver();
+        }
     }
 
     private Vector2 findNearestObstacle(GameObject[] Obstacles, float x){

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -8649650610680671547}
   m_Layer: 0
   m_Name: Birdie
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd52607da9fde5f4db0abf477be4bbce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1050166110855170187, guid: 3e0a6a594eccc8e40ac09b9705d130fb, type: 3}
+  gameManager: {fileID: 1050166110855170187, guid: 654048634670df548859e5282ff1557a, type: 3}
   data: 
   velocity: 4
   count: 0
@@ -139,7 +139,7 @@ CapsuleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: -0.20110595, y: 0.120158345}
   m_Size: {x: 10.479983, y: 4.746582}

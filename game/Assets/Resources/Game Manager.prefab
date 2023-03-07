@@ -49,5 +49,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27af416c20f5e514688ae197b32a8d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvas: {fileID: 0}
+  gameOverCanvas: {fileID: 4734217965030441901, guid: 0fb523cdd6e3fc4479f4a65e09ec84f5, type: 3}
   gameType: 3
