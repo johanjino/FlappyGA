@@ -12,6 +12,7 @@ using Microsoft.ML.OnnxRuntime.Tensors;
 using System.IO;
 using Amazon.DynamoDBv2;
 using Amazon;
+using Photon.Pun;
 
 
 public class Client {
@@ -98,7 +99,7 @@ public class Client {
 }
 
 
-public class Fly : MonoBehaviour{
+public class Fly : MonoBehaviourPunCallbacks{
 
     public GameManager gameManager;
     public Client gameMetadata = new Client();
@@ -146,7 +147,8 @@ public class Fly : MonoBehaviour{
             }
         }
         else{
-
+            
+            if (photonView.IsMine) {
             string relative_Path = "jump_data.txt"; 
             string full_Path = Path.Combine(Application.dataPath, relative_Path);
            
@@ -167,7 +169,7 @@ public class Fly : MonoBehaviour{
                 print(data);
                 file.Close();
             }
-        
+            }
         }
         count += 1;
     
