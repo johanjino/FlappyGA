@@ -1042,7 +1042,7 @@ GameObject:
   - component: {fileID: 952692352}
   m_Layer: 0
   m_Name: Birdie
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1170,6 +1170,9 @@ MonoBehaviour:
   gameManager: {fileID: 504077700}
   data: 
   velocity: 4
+  lives: 3
+  sizeduration: 0
+  rb: {fileID: 0}
   count: 0
   max_time: 2
 --- !u!70 &952692352
@@ -1718,6 +1721,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 3
   obstacle: {fileID: 5719865611338150120, guid: 0b2a22076b4b90b48a75a436078737ba, type: 3}
+  sizeup: {fileID: 8160230048533791966, guid: 652e1e0f5cbb69b428da88288923d9ee, type: 3}
+  health: {fileID: 5438037111890586843, guid: 763b99d7cb6d00e4f808fc0bf00881fe, type: 3}
+  randomNumber: 0
   height: 1.5
 --- !u!1 &1518174952
 GameObject:

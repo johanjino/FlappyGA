@@ -101,7 +101,9 @@ public class Fly : MonoBehaviour{
     public Client gameMetadata = new Client();
     public string data = "";
     public float velocity = 1;
-    private Rigidbody2D rb;
+    public int lives = 3;
+    public int sizeduration = 0;
+    public Rigidbody2D rb;
     public InferenceSession session;
 
     public int count = 0;
@@ -141,9 +143,14 @@ public class Fly : MonoBehaviour{
             }
         }
         else{
-            if (Input.GetKey("up")){
+            if (sizeduration == 0 && Input.GetKey("up")){
+                //sizepowers = 0 && up do vector2.up
+                //else vector2.down.
                 //Jump
                 rb.velocity = Vector2.up * velocity;
+            }
+            else if(Input.GetKeyDown("up")){
+                rb.velocity = Vector2.down * velocity;
             }
         }
         count += 1;
@@ -151,7 +158,10 @@ public class Fly : MonoBehaviour{
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        gameManager.GameOver();
+        lives -=1;
+        if(lives == 0){
+            gameManager.GameOver();
+        }
     }
 
     private Vector2 findNearestObstacle(GameObject[] Obstacles, float x){
