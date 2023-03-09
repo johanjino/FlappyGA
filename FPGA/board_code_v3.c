@@ -47,22 +47,21 @@ void led_blink(int state){
 	}
 }
 
-//void update_score(int score){
-//
-//	int unit_digit = 0;
-//	int tenth_digit = 0;
-//
-//	if (score < 10){
-//		IOWR_ALTERA_AVALON_PIO_DATA(HEX_0_BASE, dec_to_7seg(score));
-//	}
-//	else{
-//		score = score - 1;
-//		unit_digit = score % 10;
-//		tenth_digit = score / 10;
-//		IOWR_ALTERA_AVALON_PIO_DATA(HEX_0_BASE, dec_to_7seg(unit_digit));
-//		IOWR_ALTERA_AVALON_PIO_DATA(HEX_1_BASE, dec_to_7seg(tenth_digit));
-//	}
-//}
+void update_score(int score){
+
+	int unit_digit = 0;
+	int tenth_digit = 0;
+
+	if (score < 10){
+		IOWR_ALTERA_AVALON_PIO_DATA(HEX_0_BASE, dec_to_7seg(score));
+	}
+	else{
+		unit_digit = score % 10;
+		tenth_digit = score / 10;
+		IOWR_ALTERA_AVALON_PIO_DATA(HEX_0_BASE, dec_to_7seg(unit_digit));
+		IOWR_ALTERA_AVALON_PIO_DATA(HEX_1_BASE, dec_to_7seg(tenth_digit));
+	}
+}
 
 
 
@@ -83,11 +82,13 @@ int main() {
     }
 
     bool read_data = true;
+    int x = 0;
 
     while (1) {
 
     	alt_up_accelerometer_spi_read_z_axis(acc_dev, & axis_read);
         if (axis_read > 0xfffff000 && read_data) {
+        	update_score(x++);
         	printf("1");
         	led_blink(1);
         	read_data = false;
