@@ -17,56 +17,7 @@ using Photon.Pun;
 
 public class Client {
 
-    public TcpClient client;
-    public NetworkStream stream;
-    public bool isConnected;
 
-    
-    public void send(string data){
-        string host = "127.0.0.1";
-        int port = 8888;
-        // Connect to the server
-        client = new TcpClient(host, port);
-
-        // Get a network stream for sending data
-        stream = client.GetStream();
-
-        isConnected = true;
-
-        // Convert the data to a byte array and send it
-        byte[] buffer = Encoding.ASCII.GetBytes(data);
-        stream.Write(buffer, 0, buffer.Length);
-    }
-    
-
-    public bool bot(string data){
-        string host = "127.0.0.1";
-        int port = 8888;
-        // Connect to the server
-        client = new TcpClient(host, port);
-
-        // Get a network stream for sending data
-        stream = client.GetStream();
-
-        isConnected = true;
-
-        // Convert the data to a byte array and send it
-        byte[] buffer = Encoding.ASCII.GetBytes(data);
-        stream.Write(buffer, 0, buffer.Length);
-        byte[] receiveData = new byte[100];
-        int bytesReceived = stream.Read(receiveData, 0, receiveData.Length);
-        string receivedString = Encoding.ASCII.GetString(receiveData, 0, bytesReceived);
-        if (receivedString=="1".ToString()){
-            return true;
-        }
-        return false;
-    }
-    public void close(){
-        // Close the stream and the connection
-        stream.Close();
-        client.Close();
-    }
-    
     public InferenceSession ML_load(){
         InferenceSession session = new InferenceSession("Assets/FlappyGA.onnx");
         return session;
@@ -129,48 +80,31 @@ public class Fly : MonoBehaviourPunCallbacks{
                 count = 0;
             }
         }
-        else if (gameManager.gameType == 3){
-            if (Input.GetKey("up")){
-                //Jump
-                rb.velocity = Vector2.up * velocity;
-                Vector2 pos = findNearestObstacle(GameObject.FindGameObjectsWithTag("obstacle"), rb.position.x);
-                data = String.Format("1,{0},{1},{2},{3}",rb.position.y,pos.x,pos.y,count);
-                if (count>10){
-                    gameMetadata.send(data);
-                }
-                count = 0;
-            }
-            else if (Input.GetKey("f")){
-                Vector2 pos = findNearestObstacle(GameObject.FindGameObjectsWithTag("obstacle"), rb.position.x);
-                data = String.Format("0,{0},{1},{2},{3}",rb.position.y,pos.x,pos.y,count);
-                gameMetadata.send(data);
-            }
-        }
         else{
             
-            if (photonView.IsMine) {
-            string relative_Path = "jump_data.txt"; 
-            string full_Path = Path.Combine(Application.dataPath, relative_Path);
+            //if (photonView.IsMine) {
+            //string relative_Path = "jump_data.txt"; 
+            //string full_Path = Path.Combine(Application.dataPath, relative_Path);
            
-            FileStream file = new FileStream(full_Path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite); 
+           // FileStream file = new FileStream(full_Path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite); 
 
-            byte[] buffer = new byte[1024];
-            int bytesRead = file.Read(buffer, 0, buffer.Length);
+           // byte[] buffer = new byte[1024];
+           // int bytesRead = file.Read(buffer, 0, buffer.Length);
 
-            string data = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+           // string data = Encoding.UTF8.GetString(buffer, 0, bytesRead);
 
-            if (file != null)
-            {  
-                if (data=="1" || Input.GetKey("up")){  //FPGA Jumps
+            //if (file != null)
+            //{  
+                if (/*data=="1" ||*/ Input.GetKey("up")){  //FPGA Jumps
                 
                 rb.velocity = Vector2.up * velocity;
                 
                 }
-                print(data);
-                file.Close();
+               // print(data);
+                //file.Close();
+            //}
             }
-            }
-        }
+       //}
         count += 1;
     
     }

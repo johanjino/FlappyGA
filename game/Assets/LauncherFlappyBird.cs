@@ -40,6 +40,9 @@ public class LauncherFlappyBird : MonoBehaviourPunCallbacks
     public string levelToPlay;
     public GameObject startButton;
 
+
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -261,12 +264,14 @@ public class LauncherFlappyBird : MonoBehaviourPunCallbacks
     public void StartGame()
     {
         PhotonNetwork.LoadLevel(levelToPlay);
+        gameManager.Resume();
     }
 
     public void QuitGame()
     {
         Application.Quit();
     }
+
 
 
 }
