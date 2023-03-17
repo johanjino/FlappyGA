@@ -82,7 +82,7 @@ public class Fly : MonoBehaviourPunCallbacks{
         }
         else{
             
-            //if (photonView.IsMine) {
+            if (photonView.IsMine) {
             //string relative_Path = "jump_data.txt"; 
             //string full_Path = Path.Combine(Application.dataPath, relative_Path);
            
@@ -104,7 +104,7 @@ public class Fly : MonoBehaviourPunCallbacks{
                 //file.Close();
             //}
             }
-       //}
+        }
         count += 1;
     
     }
