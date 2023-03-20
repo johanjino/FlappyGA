@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 using System.Linq;
 using System.Net;
@@ -58,6 +59,7 @@ public class Fly : MonoBehaviourPunCallbacks{
     public float velocity = 1;
     private Rigidbody2D rb;
     public InferenceSession session;
+    public GameObject gameOverCanvas;
 
     public int count = 0;
     public int max_time = 100;
@@ -111,7 +113,10 @@ public class Fly : MonoBehaviourPunCallbacks{
 
     private void OnCollisionEnter2D(Collision2D collision){
         if (collision.gameObject.tag != "Player"){
-            gameManager.GameOver();
+            //GameObject gameOver = Instantiate(gameOverCanvas);
+            //gameOver.SetActive(true);
+            Time.timeScale = 0;
+            SceneManager.LoadScene("Leaderboard", LoadSceneMode.Additive);
         }
     }
 

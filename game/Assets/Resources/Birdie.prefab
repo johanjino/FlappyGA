@@ -126,6 +126,7 @@ MonoBehaviour:
   gameManager: {fileID: 1050166110855170187, guid: 654048634670df548859e5282ff1557a, type: 3}
   data: 
   velocity: 4
+  gameOverCanvas: {fileID: 0}
   count: 0
   max_time: 2
 --- !u!70 &1327048161084205026

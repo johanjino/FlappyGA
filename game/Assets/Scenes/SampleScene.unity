@@ -500,6 +500,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &993155486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1035407278192207564, guid: 0fb523cdd6e3fc4479f4a65e09ec84f5, type: 3}
+  m_PrefabInstance: {fileID: 4734217963013943749}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27af416c20f5e514688ae197b32a8d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1024256119
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5f8f2c7a9617141ab6ac251ee459f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1050166110855170187, guid: 3e0a6a594eccc8e40ac09b9705d130fb, type: 3}
+  gameManager: {fileID: 993155486}
   playerPrefab: {fileID: 1327048161084204824, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
 --- !u!4 &1024256121
 Transform:
@@ -663,6 +674,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1327048161084204829, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
+      propertyPath: gameOverCanvas
+      value: 
+      objectReference: {fileID: 4734217963013943750}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
 --- !u!4 &1205996035 stripped
@@ -729,6 +744,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1327048161084204829, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
+      propertyPath: gameOverCanvas
+      value: 
+      objectReference: {fileID: 4734217963013943750}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
 --- !u!4 &1337992375 stripped
@@ -795,6 +814,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1327048161084204829, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
+      propertyPath: gameOverCanvas
+      value: 
+      objectReference: {fileID: 4734217963013943750}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
 --- !u!4 &1437238961 stripped
@@ -1417,5 +1440,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Over Banner
       objectReference: {fileID: 0}
+    - target: {fileID: 4734217965030441901, guid: 0fb523cdd6e3fc4479f4a65e09ec84f5, type: 3}
+      propertyPath: m_TagString
+      value: GameOver
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fb523cdd6e3fc4479f4a65e09ec84f5, type: 3}
+--- !u!1 &4734217963013943750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4734217965030441901, guid: 0fb523cdd6e3fc4479f4a65e09ec84f5, type: 3}
+  m_PrefabInstance: {fileID: 4734217963013943749}
+  m_PrefabAsset: {fileID: 0}
