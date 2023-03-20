@@ -16,7 +16,7 @@ The functional requirements of the system included:
 
 ## Architecture
 
-![architecture](./DocumentationAssets/FlappyGA.drawio%20(1).png)
+![architecture](./DocumentationAssets/updateddiagram.png)
 
 ## Documentation
 
