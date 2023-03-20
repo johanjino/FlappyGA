@@ -10,9 +10,9 @@ The game involves players tilting their FPGA up and down to move the character; 
 
 The functional requirements of the system included:
   - Local Processing of Accelerometer Data: FPGA performs fixed-point FIR filtering on data from accelerometer sensor to smoothen it and remove noise.
-  - Communication from Node to Server: FPGA accelerometer data is processed on a local computer, which determines the board tilt direction. This is then published to a MQTT server hosted on AWS.
-  - Establishment of Cloud Server to Process Events: Photon Server hosted on AWS determines next game state depending on directions published to MQTT broker.
-  - Communication from Server to Nodes: The FPGA 7SEG display is updated with data on the player's performance in the game, in real-time.
+  - Communication from Node to Server: FPGA accelerometer data is processed on a local computer, which determines the board tilt direction. This is then sent via a websocket to Unity.
+  - Establishment of Cloud Server to Process Events: Photon Server is used to control the game state to allow for multiplayer. We use the DynamoDB SDK to update and get leaderboard data. 
+  - Communication from Server to Nodes: The FPGA is updated with the number of jumps to inform the user how long he or she has lasted in the game.
 
 ## Architecture
 
