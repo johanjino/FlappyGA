@@ -630,6 +630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Birdie (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1327048161084204824, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1327048161084204828, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -700,6 +704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Birdie (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1327048161084204824, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1327048161084204828, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -769,6 +777,10 @@ PrefabInstance:
     - target: {fileID: 1327048161084204824, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
       propertyPath: m_Name
       value: Birdie (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327048161084204824, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1327048161084204828, guid: ec59607bc3703cb4888100b61f08ee62, type: 3}
       propertyPath: m_RootOrder

@@ -70,6 +70,7 @@ public class Fly : MonoBehaviourPunCallbacks{
         rb = GetComponent<Rigidbody2D>();
         session = gameMetadata.ML_load();
         rb.velocity = Vector2.up * velocity;
+        Physics2D.IgnoreLayerCollision(6, 6, true);
     }
 
     // Update is called once per frame
