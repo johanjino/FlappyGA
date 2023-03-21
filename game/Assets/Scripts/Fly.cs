@@ -57,7 +57,9 @@ public class Fly : MonoBehaviourPunCallbacks{
     public Client gameMetadata = new Client();
     public string data = "";
     public float velocity = 1;
-    private Rigidbody2D rb;
+    public int lives = 3;
+    public int sizeduration = 0;
+    public Rigidbody2D rb;
     public InferenceSession session;
     public GameObject gameOverCanvas;
 
@@ -105,10 +107,13 @@ public class Fly : MonoBehaviourPunCallbacks{
 
             //if (file != null)
             //{  
-                if (/*data=="1" ||*/ Input.GetKey("up")){  //FPGA Jumps
+                if (sizeduration == 0 && (/*data=="1" ||*/ Input.GetKey("up"))){  //FPGA Jumps
                 
                 rb.velocity = Vector2.up * velocity;
                 
+                }
+                else if(/*data=="1" || */ Input.GetKeyDown("up")){
+                    rb.velocity = Vector2.down * velocity;
                 }
                // print(data);
                 //file.Close();
@@ -123,9 +128,11 @@ public class Fly : MonoBehaviourPunCallbacks{
         if (collision.gameObject.tag != "Player"){
             //GameObject gameOver = Instantiate(gameOverCanvas);
             //gameOver.SetActive(true);
-
-            Time.timeScale = 0;
-            SceneManager.LoadScene("Leaderboard", LoadSceneMode.Additive);
+            lives -=1;
+            if(lives == 0){
+                Time.timeScale = 0;
+                SceneManager.LoadScene("Leaderboard", LoadSceneMode.Additive);
+            }
         }
     }
 

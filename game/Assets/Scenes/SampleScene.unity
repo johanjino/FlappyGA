@@ -883,6 +883,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 3
   obstacle: {fileID: 5719865611338150120, guid: 0b2a22076b4b90b48a75a436078737ba, type: 3}
+  sizeup: {fileID: 5438037111890586843, guid: 763b99d7cb6d00e4f808fc0bf00881fe, type: 3}
+  health: {fileID: 8160230048533791966, guid: 652e1e0f5cbb69b428da88288923d9ee, type: 3}
+  randomNumber: 0
   height: 2
 --- !u!1 &1518174952
 GameObject:
