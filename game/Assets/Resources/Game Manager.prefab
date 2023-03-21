@@ -50,4 +50,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverCanvas: {fileID: 4734217965030441901, guid: 0fb523cdd6e3fc4479f4a65e09ec84f5, type: 3}
-  gameType: 3
+  gameType: 0

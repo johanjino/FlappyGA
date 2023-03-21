@@ -883,7 +883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 3
   obstacle: {fileID: 5719865611338150120, guid: 0b2a22076b4b90b48a75a436078737ba, type: 3}
-  height: 1.5
+  height: 2
 --- !u!1 &1518174952
 GameObject:
   m_ObjectHideFlags: 0

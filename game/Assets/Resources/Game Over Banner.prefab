@@ -457,7 +457,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1050166110855170187, guid: 654048634670df548859e5282ff1557a, type: 3}
       propertyPath: gameType
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1050166110855170187, guid: 654048634670df548859e5282ff1557a, type: 3}
       propertyPath: gameOverCanvas

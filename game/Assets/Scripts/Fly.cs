@@ -61,6 +61,7 @@ public class Fly : MonoBehaviourPunCallbacks{
     public InferenceSession session;
     public GameObject gameOverCanvas;
 
+    public int gameType;
     public int count = 0;
     public int max_time = 100;
 
@@ -70,12 +71,18 @@ public class Fly : MonoBehaviourPunCallbacks{
         rb = GetComponent<Rigidbody2D>();
         session = gameMetadata.ML_load();
         rb.velocity = Vector2.up * velocity;
+        using (StreamReader reader = new StreamReader("Assets/GameType.txt")) {
+            // Read the integer from the file
+            gameType = int.Parse(reader.ReadToEnd());
+        }
+
         Physics2D.IgnoreLayerCollision(6, 6, true);
     }
 
     // Update is called once per frame
     void Update(){
-        if (gameManager.gameType == 2){
+        Debug.Log(gameType);
+        if (gameType == 2){
             Vector2 pos = findNearestObstacle(GameObject.FindGameObjectsWithTag("obstacle"), rb.position.x);
             //data = String.Format("1,{0},{1},{2},{3}",rb.position.y,pos.x,pos.y,count);
             if (gameMetadata.ML_predict(rb.position.y,pos.x,pos.y,count, session)){
@@ -116,6 +123,7 @@ public class Fly : MonoBehaviourPunCallbacks{
         if (collision.gameObject.tag != "Player"){
             //GameObject gameOver = Instantiate(gameOverCanvas);
             //gameOver.SetActive(true);
+
             Time.timeScale = 0;
             SceneManager.LoadScene("Leaderboard", LoadSceneMode.Additive);
         }

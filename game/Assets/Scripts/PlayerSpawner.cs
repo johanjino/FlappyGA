@@ -40,7 +40,6 @@ public class PlayerSpawner : MonoBehaviour
 
                 }
             }
-            gameManager.gameType = 1;
             gameManager.Resume();
         }
 

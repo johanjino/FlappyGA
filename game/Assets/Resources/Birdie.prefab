@@ -127,6 +127,7 @@ MonoBehaviour:
   data: 
   velocity: 4
   gameOverCanvas: {fileID: 0}
+  gameType: 0
   count: 0
   max_time: 2
 --- !u!70 &1327048161084205026
