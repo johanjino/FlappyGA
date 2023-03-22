@@ -16,18 +16,23 @@ public class Leaderboard_EC2 : MonoBehaviour
     private const int SERVER_PORT = 1234; // change to a different port number
     //public LauncherFlappyBird launcher;
     private TcpClient client;
-    //public LauncherFlappyBird launcher = new LauncherFlappyBird();
-    //public TextMeshProUGUI Text1;
-    //public TextMeshProUGUI Text2;
+    public GameObject gameoverScreen;
+    public GameObject leaderBoard;
 
     void Start()
     {
+        gameoverScreen.SetActive(true);
         Connect();
         string filePath = Application.dataPath + "/example.txt";
         string name = File.ReadAllText(filePath);
-        SendData(name,300);
+        string filePath1 = Application.dataPath + "/score.txt";
+        string score = File.ReadAllText(filePath1);
+        SendData(name,score);
         ReceiveLeaderboard();
         Disconnect();
+        //gameoverScreen.SetActive(false);
+        leaderBoard.SetActive(true);
+
     }
 
     void Update()
@@ -54,7 +59,7 @@ public class Leaderboard_EC2 : MonoBehaviour
     }
 
 
-    public void SendData(string playername, int score)
+    public void SendData(string playername, string score)
     {
         try
         {
@@ -99,7 +104,7 @@ public class Leaderboard_EC2 : MonoBehaviour
             if (leaderboard.Count<5){
                 for (int i=0; i<leaderboard.Count;i++){
                     var playername = leaderboard[i]["playername"];
-                    var score = leaderboard[i]["score"].ToString();
+                    var score = leaderboard[i]["score"];
                     if (i==0){
                     Debug.Log("TRYING THIS? IDK MAN");
                     // Find the TextMeshPro object by name
@@ -108,7 +113,7 @@ public class Leaderboard_EC2 : MonoBehaviour
                     name.text = playername.ToString();
                     GameObject scoreObject = GameObject.Find("Score1");
                     TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
-                    scores.text = score;
+                    scores.text = score.ToString();
                     
 
                 }
@@ -118,7 +123,7 @@ public class Leaderboard_EC2 : MonoBehaviour
                     name.text = playername.ToString();
                     GameObject scoreObject = GameObject.Find("Score2");
                     TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
-                    scores.text = score;
+                    scores.text = score.ToString();
                 }
                 else if (i==2){
                     GameObject nameObject = GameObject.Find("Name3");
@@ -126,7 +131,7 @@ public class Leaderboard_EC2 : MonoBehaviour
                     name.text = playername.ToString();
                     GameObject scoreObject = GameObject.Find("Score3");
                     TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
-                    scores.text = score;
+                    scores.text = score.ToString();
                 }
                 else if (i==3){
                     GameObject nameObject = GameObject.Find("Name4");
@@ -134,7 +139,7 @@ public class Leaderboard_EC2 : MonoBehaviour
                     name.text = playername.ToString();
                     GameObject scoreObject = GameObject.Find("Score4");
                     TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
-                    scores.text = score;
+                    scores.text = score.ToString();
                 }
                 else if (i==4){
                     GameObject nameObject = GameObject.Find("Name5");
@@ -142,7 +147,7 @@ public class Leaderboard_EC2 : MonoBehaviour
                     name.text = playername.ToString();
                     GameObject scoreObject = GameObject.Find("Score5");
                     TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
-                    scores.text = score;
+                    scores.text = score.ToString();
                 }
                 }
             }
@@ -159,7 +164,7 @@ public class Leaderboard_EC2 : MonoBehaviour
                     name.text = playername.ToString();
                     GameObject scoreObject = GameObject.Find("Score1");
                     TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
-                    scores.text = score;
+                    scores.text = score.ToString();
                     
                 }
                 else if (i==1){
@@ -168,7 +173,7 @@ public class Leaderboard_EC2 : MonoBehaviour
                     name.text = playername.ToString();
                     GameObject scoreObject = GameObject.Find("Score2");
                     TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
-                    scores.text = score;
+                    scores.text = score.ToString();
                 }
                 else if (i==2){
                     GameObject nameObject = GameObject.Find("Name3");
@@ -176,7 +181,7 @@ public class Leaderboard_EC2 : MonoBehaviour
                     name.text = playername.ToString();
                     GameObject scoreObject = GameObject.Find("Score3");
                     TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
-                    scores.text = score;
+                    scores.text = score.ToString();
                 }
                 else if (i==3){
                     GameObject nameObject = GameObject.Find("Name4");
@@ -184,7 +189,7 @@ public class Leaderboard_EC2 : MonoBehaviour
                     name.text = playername.ToString();
                     GameObject scoreObject = GameObject.Find("Score4");
                     TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
-                    scores.text = score;
+                    scores.text = score.ToString();
                 }
                 else if (i==4){
                     GameObject nameObject = GameObject.Find("Name5");
@@ -192,7 +197,7 @@ public class Leaderboard_EC2 : MonoBehaviour
                     name.text = playername.ToString();
                     GameObject scoreObject = GameObject.Find("Score5");
                     TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
-                    scores.text = score;
+                    scores.text = score.ToString();
                 }
             }
             }
