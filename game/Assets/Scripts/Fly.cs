@@ -69,6 +69,9 @@ public class Fly : MonoBehaviourPunCallbacks{
 
     // Start is called before the first frame update
     void Start(){
+
+
+
         UnityInitializer.AttachToGameObject(this.gameObject);
         rb = GetComponent<Rigidbody2D>();
         session = gameMetadata.ML_load();
@@ -95,29 +98,29 @@ public class Fly : MonoBehaviourPunCallbacks{
         else{
             
             if (photonView.IsMine) {
-            //string relative_Path = "jump_data.txt"; 
-            //string full_Path = Path.Combine(Application.dataPath, relative_Path);
+            string relative_Path = "jump_data.txt"; 
+            string full_Path = Path.Combine(Application.dataPath, relative_Path);
            
-           // FileStream file = new FileStream(full_Path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite); 
+           FileStream file = new FileStream(full_Path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite); 
 
-           // byte[] buffer = new byte[1024];
-           // int bytesRead = file.Read(buffer, 0, buffer.Length);
+           byte[] buffer = new byte[1024];
+           int bytesRead = file.Read(buffer, 0, buffer.Length);
 
-           // string data = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+           string data = Encoding.UTF8.GetString(buffer, 0, bytesRead);
 
-            //if (file != null)
-            //{  
-                if (sizeduration == 0 && (/*data=="1" ||*/ Input.GetKey("up"))){  //FPGA Jumps
+            if (file != null)
+            {  
+                if (sizeduration == 0 && (data=="1" || Input.GetKey("up"))){  //FPGA Jumps
                 
                 rb.velocity = Vector2.up * velocity;
                 
                 }
-                else if(/*data=="1" || */ Input.GetKeyDown("up")){
+                else if(data=="1" || Input.GetKeyDown("up")){
                     rb.velocity = Vector2.down * velocity;
                 }
-               // print(data);
-                //file.Close();
-            //}
+               print(data);
+                file.Close();
+            }
             }
         }
         count += 1;

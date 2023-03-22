@@ -1,3 +1,4 @@
+
 import intel_jtag_uart
 import keyboard
 from time import sleep
@@ -6,9 +7,13 @@ import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 os.chdir(dir_path)
 
-usb_port = intel_jtag_uart.intel_jtag_uart()
+jtag = intel_jtag_uart.intel_jtag_uart()
 
-old_game_score = "-1"
+old_game_score = "x"
+
+file = open("score_data.txt" , "w")
+file.write("e")
+file.close()
 
 while (True):
 
@@ -17,26 +22,20 @@ while (True):
 
     file = open("score_data.txt" , "r")
     game_score = file.read()
-    if (game_score != old_game_score and game_score != ""):
+    if (game_score != old_game_score and game_score != "" and game_score!="0"):
         print("Score: " + game_score)
         old_game_score = game_score
-        usb_port.write(game_score.encode())
-        sleep(0.5)
-        data = usb_port.read()
-        print(data)
-    
+        jtag.write(game_score.encode())
     file.close()
 
-
-    
-    data = usb_port.read()
-
+    data = jtag.read()
+   
     if (data == b'1'):
         file = open("jump_data.txt" , "w")
-        print(1)
+        print("Jump")
         file.write("1")
         file.close()
-        sleep(0.15)
+        sleep(0.12)
     else:
         file = open("jump_data.txt" , "w")
         file.write("0")

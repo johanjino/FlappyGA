@@ -14,5 +14,8 @@ public class StartSequence : MonoBehaviour{
     void Start(){
         StartCanvas.SetActive(true);
         gameManager.Pause();
-    }
+
+ 
+}
+
 }

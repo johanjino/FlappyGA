@@ -277,6 +277,18 @@ public class LauncherFlappyBird : MonoBehaviourPunCallbacks
 
     public void StartGame()
     {
+        string relative_Path = "score_data.txt"; 
+        string full_Path = Path.Combine(Application.dataPath, relative_Path);
+    
+        using (FileStream file = new FileStream(full_Path, FileMode.Create, FileAccess.Write, FileShare.ReadWrite)) {
+        using (StreamWriter writer = new StreamWriter(file)) {
+
+                    file.Seek(0, SeekOrigin.Begin);
+                    writer.Write('e');
+                    writer.Flush();
+                    System.Threading.Thread.Sleep(100);
+            }
+    }
         PhotonNetwork.LoadLevel(levelToPlay);
         gameManager.Resume();
     }
