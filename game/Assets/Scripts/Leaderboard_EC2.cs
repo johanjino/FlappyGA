@@ -7,26 +7,27 @@ using System;
 using System.Text;
 using Newtonsoft.Json;
 using System.Threading;
+using System.IO;
+using TMPro;
 
 public class Leaderboard_EC2 : MonoBehaviour
 {
     private const string SERVER_IP = "34.232.67.167";
     private const int SERVER_PORT = 1234; // change to a different port number
+    //public LauncherFlappyBird launcher;
     private TcpClient client;
+    //public LauncherFlappyBird launcher = new LauncherFlappyBird();
+    //public TextMeshProUGUI Text1;
+    //public TextMeshProUGUI Text2;
 
     void Start()
     {
         Connect();
-        SendData("TestingName1",30);
-        Thread.Sleep(1000);
-        SendData("TestingName2",23);
-        Thread.Sleep(1000);
-        SendData("TestingName3",20);
-        Thread.Sleep(1000);
-        SendData("TestingName4",50);
-        Thread.Sleep(1000);
-        SendData("TestingName5",12);
+        string filePath = Application.dataPath + "/example.txt";
+        string name = File.ReadAllText(filePath);
+        SendData(name,300);
         ReceiveLeaderboard();
+        Disconnect();
     }
 
     void Update()
@@ -46,6 +47,12 @@ public class Leaderboard_EC2 : MonoBehaviour
             Debug.LogError("Error connecting to server: " + e.Message);
         }
     }
+
+    public void getClient()
+    {
+        LauncherFlappyBird launcher = new LauncherFlappyBird();
+    }
+
 
     public void SendData(string playername, int score)
     {
@@ -88,13 +95,106 @@ public class Leaderboard_EC2 : MonoBehaviour
 
             // Parse the JSON response and display the top 5 players with highest scores
             var leaderboard = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(response.ToString());
-
             Debug.Log("Received leaderboard data from server:");
-            for (int i = 0; i < 5; i++)
+            if (leaderboard.Count<5){
+                for (int i=0; i<leaderboard.Count;i++){
+                    var playername = leaderboard[i]["playername"];
+                    var score = leaderboard[i]["score"].ToString();
+                    if (i==0){
+                    Debug.Log("TRYING THIS? IDK MAN");
+                    // Find the TextMeshPro object by name
+                    GameObject nameObject = GameObject.Find("Name1");
+                    TextMeshProUGUI name = nameObject.GetComponent<TextMeshProUGUI>();
+                    name.text = playername.ToString();
+                    GameObject scoreObject = GameObject.Find("Score1");
+                    TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
+                    scores.text = score;
+                    
+
+                }
+                else if (i==1){
+                    GameObject nameObject = GameObject.Find("Name2");
+                    TextMeshProUGUI name = nameObject.GetComponent<TextMeshProUGUI>();
+                    name.text = playername.ToString();
+                    GameObject scoreObject = GameObject.Find("Score2");
+                    TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
+                    scores.text = score;
+                }
+                else if (i==2){
+                    GameObject nameObject = GameObject.Find("Name3");
+                    TextMeshProUGUI name = nameObject.GetComponent<TextMeshProUGUI>();
+                    name.text = playername.ToString();
+                    GameObject scoreObject = GameObject.Find("Score3");
+                    TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
+                    scores.text = score;
+                }
+                else if (i==3){
+                    GameObject nameObject = GameObject.Find("Name4");
+                    TextMeshProUGUI name = nameObject.GetComponent<TextMeshProUGUI>();
+                    name.text = playername.ToString();
+                    GameObject scoreObject = GameObject.Find("Score4");
+                    TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
+                    scores.text = score;
+                }
+                else if (i==4){
+                    GameObject nameObject = GameObject.Find("Name5");
+                    TextMeshProUGUI name = nameObject.GetComponent<TextMeshProUGUI>();
+                    name.text = playername.ToString();
+                    GameObject scoreObject = GameObject.Find("Score5");
+                    TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
+                    scores.text = score;
+                }
+                }
+            }
+            else{
+                for (int i = 0; i < 5; i++)
             {
-                var playername = leaderboard[i]["playername"].ToString();
-                var score = (int) leaderboard[i]["score"];
-                Debug.Log("Player " + (i+1) + ": " + playername + " - Score: " + score);
+                var playername = leaderboard[i]["playername"];
+                var score = leaderboard[i]["score"].ToString();
+                if (i==0){
+                    Debug.Log("TRYING THIS? IDK MAN");
+                    // Find the TextMeshPro object by name
+                    GameObject nameObject = GameObject.Find("Name1");
+                    TextMeshProUGUI name = nameObject.GetComponent<TextMeshProUGUI>();
+                    name.text = playername.ToString();
+                    GameObject scoreObject = GameObject.Find("Score1");
+                    TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
+                    scores.text = score;
+                    
+                }
+                else if (i==1){
+                    GameObject nameObject = GameObject.Find("Name2");
+                    TextMeshProUGUI name = nameObject.GetComponent<TextMeshProUGUI>();
+                    name.text = playername.ToString();
+                    GameObject scoreObject = GameObject.Find("Score2");
+                    TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
+                    scores.text = score;
+                }
+                else if (i==2){
+                    GameObject nameObject = GameObject.Find("Name3");
+                    TextMeshProUGUI name = nameObject.GetComponent<TextMeshProUGUI>();
+                    name.text = playername.ToString();
+                    GameObject scoreObject = GameObject.Find("Score3");
+                    TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
+                    scores.text = score;
+                }
+                else if (i==3){
+                    GameObject nameObject = GameObject.Find("Name4");
+                    TextMeshProUGUI name = nameObject.GetComponent<TextMeshProUGUI>();
+                    name.text = playername.ToString();
+                    GameObject scoreObject = GameObject.Find("Score4");
+                    TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
+                    scores.text = score;
+                }
+                else if (i==4){
+                    GameObject nameObject = GameObject.Find("Name5");
+                    TextMeshProUGUI name = nameObject.GetComponent<TextMeshProUGUI>();
+                    name.text = playername.ToString();
+                    GameObject scoreObject = GameObject.Find("Score5");
+                    TextMeshProUGUI scores = scoreObject.GetComponent<TextMeshProUGUI>();
+                    scores.text = score;
+                }
+            }
             }
         }
         catch (Exception e)
@@ -102,4 +202,17 @@ public class Leaderboard_EC2 : MonoBehaviour
             Debug.LogError("Error receiving leaderboard data from server: " + e.Message);
         }
     }
+
+    public void Disconnect()
+{
+    try
+    {
+        client.Close();
+        Debug.Log("Disconnected from server.");
+    }
+    catch (Exception e)
+    {
+        Debug.LogError("Error disconnecting from server: " + e.Message);
+    }
+}
 }

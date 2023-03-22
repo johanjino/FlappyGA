@@ -1,13 +1,23 @@
 using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
+using UnityEngine.Networking;
+using System.Net.Sockets;
+using System;
+using System.Text;
+using Newtonsoft.Json;
+using System.Threading;
 
 public class LauncherFlappyBird : MonoBehaviourPunCallbacks
 {
     public static LauncherFlappyBird instance;
+    private const string SERVER_IP = "34.232.67.167";
+    private const int SERVER_PORT = 1234; // change to a different port number
+    //public TcpClient client = new TcpClient(SERVER_IP,SERVER_PORT);
 
     private void Awake()
     {
@@ -50,6 +60,7 @@ public class LauncherFlappyBird : MonoBehaviourPunCallbacks
         loadingScreen.SetActive(true);
         loadingText.text = "Connecting to Network...";
         print ("Connecting to Server");
+        //Connect();
         PhotonNetwork.GameVersion = "0.0.1";
         PhotonNetwork.ConnectUsingSettings();   
     }
@@ -79,7 +90,7 @@ public class LauncherFlappyBird : MonoBehaviourPunCallbacks
         CloseMenus();
         menuButtons.SetActive(true);
         
-        PhotonNetwork.NickName = Random.Range(0, 1000).ToString();
+        PhotonNetwork.NickName = UnityEngine.Random.Range(0, 1000).ToString();
 
         if(!hasSetNick)
         {
@@ -254,6 +265,9 @@ public class LauncherFlappyBird : MonoBehaviourPunCallbacks
 
             PlayerPrefs.SetString("playerName", nameInput.text);
 
+            string filePath = Application.dataPath + "/example.txt";
+            File.WriteAllText(filePath, nameInput.text);
+
             CloseMenus();
             menuButtons.SetActive(true);
 
@@ -271,6 +285,7 @@ public class LauncherFlappyBird : MonoBehaviourPunCallbacks
     {
         Application.Quit();
     }
+
 
 
 
