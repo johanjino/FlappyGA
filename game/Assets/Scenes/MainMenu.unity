@@ -699,6 +699,7 @@ MonoBehaviour:
   nameInput: {fileID: 524074728}
   levelToPlay: SampleScene
   startButton: {fileID: 69386712}
+  quitButton: {fileID: 80611620}
   gameManager: {fileID: 0}
 --- !u!1 &179435395
 GameObject:
@@ -4805,7 +4806,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc43a54d6f8251a468a03d6612a73c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
 --- !u!1 &1146417977
 GameObject:
   m_ObjectHideFlags: 0
@@ -6783,7 +6783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc43a54d6f8251a468a03d6612a73c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
 --- !u!1 &1581330318
 GameObject:
   m_ObjectHideFlags: 0
@@ -7054,17 +7053,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1581753699}
   m_CullTransparentMesh: 1
---- !u!114 &1612074050 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1050166110855170187, guid: 654048634670df548859e5282ff1557a, type: 3}
-  m_PrefabInstance: {fileID: 591756193}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27af416c20f5e514688ae197b32a8d6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1701141870
 GameObject:
   m_ObjectHideFlags: 0
@@ -7503,7 +7491,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 469418632}
   m_HandleRect: {fileID: 469418631}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7913,7 +7901,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc43a54d6f8251a468a03d6612a73c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1612074050}
 --- !u!1 &1988555851
 GameObject:
   m_ObjectHideFlags: 0
@@ -8222,7 +8209,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 460450655}
   m_HandleRect: {fileID: 460450654}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

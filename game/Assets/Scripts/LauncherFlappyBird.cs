@@ -15,9 +15,6 @@ using System.Threading;
 public class LauncherFlappyBird : MonoBehaviourPunCallbacks
 {
     public static LauncherFlappyBird instance;
-    private const string SERVER_IP = "34.232.67.167";
-    private const int SERVER_PORT = 1234; // change to a different port number
-    //public TcpClient client = new TcpClient(SERVER_IP,SERVER_PORT);
 
     private void Awake()
     {
@@ -50,19 +47,22 @@ public class LauncherFlappyBird : MonoBehaviourPunCallbacks
     public string levelToPlay;
     public GameObject startButton;
 
+    public GameObject quitButton;
+
 
     public GameManager gameManager;
 
     // Start is called before the first frame update
     private void Start()
     {
+        
         CloseMenus();
         loadingScreen.SetActive(true);
         loadingText.text = "Connecting to Network...";
         print ("Connecting to Server");
-        //Connect();
         PhotonNetwork.GameVersion = "0.0.1";
         PhotonNetwork.ConnectUsingSettings();   
+        
     }
 
     void CloseMenus()

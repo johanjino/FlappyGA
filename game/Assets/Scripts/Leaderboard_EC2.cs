@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System.Threading;
 using System.IO;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Leaderboard_EC2 : MonoBehaviour
 {
@@ -38,6 +39,11 @@ public class Leaderboard_EC2 : MonoBehaviour
     void Update()
     {
         
+    }
+
+
+    public void onClick(){
+        Application.Quit();
     }
 
     public void Connect()
@@ -106,7 +112,6 @@ public class Leaderboard_EC2 : MonoBehaviour
                     var playername = leaderboard[i]["playername"];
                     var score = leaderboard[i]["score"];
                     if (i==0){
-                    Debug.Log("TRYING THIS? IDK MAN");
                     // Find the TextMeshPro object by name
                     GameObject nameObject = GameObject.Find("Name1");
                     TextMeshProUGUI name = nameObject.GetComponent<TextMeshProUGUI>();
