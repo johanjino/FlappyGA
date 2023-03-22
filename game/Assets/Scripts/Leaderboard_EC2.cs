@@ -19,11 +19,15 @@ public class Leaderboard_EC2 : MonoBehaviour
     private TcpClient client;
     public GameObject gameoverScreen;
     public GameObject leaderBoard;
+    public bool isConnect;
 
     void Start()
     {
         gameoverScreen.SetActive(true);
-        Connect();
+        Debug.Log(isConnect);
+        if (!isConnect){
+            Connect();
+        }
         string filePath = Application.dataPath + "/example.txt";
         string name = File.ReadAllText(filePath);
         string filePath1 = Application.dataPath + "/score.txt";
@@ -52,6 +56,7 @@ public class Leaderboard_EC2 : MonoBehaviour
         {
             client = new TcpClient(SERVER_IP, SERVER_PORT);
             Debug.Log("Connected to server.");
+            isConnect = true;
         }
         catch (Exception e)
         {
