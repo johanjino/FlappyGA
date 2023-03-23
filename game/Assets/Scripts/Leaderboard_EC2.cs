@@ -47,7 +47,7 @@ public class Leaderboard_EC2 : MonoBehaviour
 
 
     public void onClick(){
-        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void Connect()
