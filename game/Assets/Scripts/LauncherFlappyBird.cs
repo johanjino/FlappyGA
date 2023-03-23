@@ -295,7 +295,7 @@ public class LauncherFlappyBird : MonoBehaviourPunCallbacks
 
     public void QuitGame()
     {
-        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 
 
