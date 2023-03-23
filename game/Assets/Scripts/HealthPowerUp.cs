@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using System.IO;
 
 public class HealthPowerUp : MonoBehaviour
 {
@@ -23,9 +22,9 @@ public class HealthPowerUp : MonoBehaviour
     void Pickup(Collider2D player) {
         // Instantiate(pickupEffect, transform.position, transform.rotation);
         Fly stats = player.GetComponent<Fly>();
-        stats.lives += 1;
+        Lives.lives += 1;
 
-        Debug.Log("Number of lives " + stats.lives);
+        Debug.Log("Number of lives " + Lives.lives);
         // Debug.Log("Power up picked up");
 
         Destroy(gameObject);

@@ -126,7 +126,6 @@ MonoBehaviour:
   gameManager: {fileID: 1050166110855170187, guid: 654048634670df548859e5282ff1557a, type: 3}
   data: 
   velocity: 4
-  lives: 3
   sizeduration: 0
   rb: {fileID: 0}
   gameOverCanvas: {fileID: 0}

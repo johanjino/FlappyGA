@@ -57,7 +57,6 @@ public class Fly : MonoBehaviourPunCallbacks{
     public Client gameMetadata = new Client();
     public string data = "";
     public float velocity = 1;
-    public int lives = 3;
     public int sizeduration = 0;
     public Rigidbody2D rb;
     public InferenceSession session;
@@ -131,8 +130,8 @@ public class Fly : MonoBehaviourPunCallbacks{
         if (collision.gameObject.tag != "Player"){
             //GameObject gameOver = Instantiate(gameOverCanvas);
             //gameOver.SetActive(true);
-            lives -=1;
-            if(lives == 0){
+            Lives.lives -=1;
+            if(Lives.lives == -1){
                 Time.timeScale = 0;
                 SceneManager.LoadScene("Leaderboard", LoadSceneMode.Additive);
             }
