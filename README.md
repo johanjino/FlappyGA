@@ -1,5 +1,7 @@
 # FlappyGA: Real-Time Multiplayer Browser Game with FPGA Control Input
 
+![FrontPage](DocumentationAssets/FlappyGA.jpg)
+
 ## Description
 
 This repository contains code for FlappyGA, a game we created as part of our EIE2 Information Processing Project at Imperial College London based off of Flappy Bird.  
